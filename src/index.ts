@@ -10,13 +10,6 @@ const main = async () => {
   const prompt = new Prompt();
   const answers = await prompt.getAnswers();
 
-  if (!answers["notionToken"]) {
-    console.log(
-      "Notion integration token is required, come back when you have it!"
-    );
-    process.exit(0);
-  }
-
   const client = new Client({ auth: answers["notionToken"] });
 
   const notion = new NotionClient(client);
